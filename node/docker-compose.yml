@@ -8,13 +8,13 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - node-app
+    networks:
+      - frontend
 
   node-app:
     build:
       context: ./node-app
     container_name: node-app
-    ports:
-      - "3000:3000"
     volumes:
       - ./node-app:/app
       - /app/node_modules
@@ -22,6 +22,9 @@ services:
     command: npm start
     depends_on:
       - mysql-db
+    networks:
+      - frontend
+      - backend
 
   mysql-db:
     image: mysql:8.0
@@ -33,6 +36,12 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - backend
 
 volumes:
   mysql_data:
+
+networks:
+  frontend:
+  backend:
