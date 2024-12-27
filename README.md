@@ -9,8 +9,8 @@ Bem-vindo ao repositório dos desafios realizados durante o curso da **FullCycle
 
 ### **Desafio 1: Imagem GoLang no Docker**
 #### Objetivo:
-Criar uma imagem Docker que, ao ser executada, imprime a mensagem:
-E o tamanho final da imagem não pode ultrapassar **2MB**.
+1. Criar uma imagem Docker que, ao ser executada, imprime a mensagem: **Full Cycle Rocks!!**
+2. E o tamanho final da imagem não pode ultrapassar **2MB**.
 
 #### Solução:
 - Utilizamos o **builder pattern** no Dockerfile para compilar o código Go e gerar um binário estático.
@@ -37,16 +37,54 @@ Exibir uma página com a mensagem Full Cycle Rocks! e a lista de nomes cadastrad
 - Aplicação Node.js para comunicação com o banco MySQL.
 - Banco de dados MySQL para persistência.
 - Utilizamos o pacote @faker-js/faker para gerar nomes aleatórios e mysql2 para comunicação com o banco.
-Como executar:
+
+### Como executar:
 ---
 1. Clone o repositório
 
 ```bash
-git clone https://github.com/AlexandreNoguez/fullcycle-desafio-docker.git
+git clone https://github.com/AlexandreNoguez/fullcycle-docker-desafio
 ```
 
 ```bash
-cd fullcycle-challenges
+cd fullcycle-docker-desafio
 ```
 
 2. Suba os containers com Docker Compose
+
+```bash
+docker-compose up -d
+```
+
+3. Acesse a aplicação
+(localhost:80)[localost]
+
+### Estrutura do Repositório
+
+```plaintext
+.
+├── desafio1-golang
+│   ├── Dockerfile
+│   ├── main.go
+├── desafio2-nginx-node-mysql
+│   ├── docker-compose.yml
+│   ├── nginx/
+│   │   └── default.conf
+│   ├── node-app/
+│   │   ├── Dockerfile
+│   │   ├── package.json
+│   │   ├── server.js
+└── README.md
+```
+
+### Tecnologias Utilizadas
+1. GoLang: Para criar um binário estático no Desafio 1.
+2. Node.js: Backend para inserção e recuperação de dados no Desafio 2.
+3. MySQL: Banco de dados relacional.
+4. Nginx: Proxy reverso no Desafio 2.
+5. Docker & Docker Compose: Para containerização e orquestração dos serviços.
+
+## Autor
+Alexandre Noguez
+
+[LinkedIn](https://www.linkedin.com/in/alexandre-noguez/)
